@@ -8,10 +8,7 @@ public class FireLaunch : MonoBehaviour
 
 	void Start()
 	{
-		while (true)
-		{
-            Invoke("Launch", timeWait);
-		}
+		Invoke("Launch", 5);
 	}
 	void Launch()
 	{
