@@ -26,7 +26,7 @@ public class TileGenerate : MonoBehaviour
 			if (tileChoose <= 90)
 			{
                 SpawnPoint.y += Random.Range(minGap, maxGap);
-				if (tileChoose <= 50)
+				if (tileChoose <= 10)
 				{
                     DropPoint = SpawnPoint;
 					DropPoint.y += 0.35f;

@@ -5,6 +5,7 @@ public class FireAttack : MonoBehaviour {
 	public float Speed = 15;
 	public int DamageCount = -50;
 	public Rigidbody2D Rb;
+	public GameObject Explosion;
 
 	void Start () 
 	{
@@ -16,6 +17,7 @@ public class FireAttack : MonoBehaviour {
 		if (player != null)
 		{
 			player.HealthChange(DamageCount);
+            Instantiate(Explosion, this.transform.position, Quaternion.identity);
 			Destroy(this.gameObject);
 		}
 	}

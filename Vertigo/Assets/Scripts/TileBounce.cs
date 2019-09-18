@@ -12,6 +12,7 @@ public class TileBounce : MonoBehaviour {
         {
             if (collision.relativeVelocity.y <= 0f)
             {
+                FindObjectOfType<PlayerMain>().JumpAnimation();
                 Vector2 velocity = Rb.velocity;
                 velocity.y = Jump;
                 Rb.velocity = velocity;

@@ -1,10 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class Manager : MonoBehaviour 
 {	
-	bool ended = false;
+	public bool ended = false;
 
 	public void EndGame()
 	{
@@ -12,10 +11,11 @@ public class Manager : MonoBehaviour
 		{	
 			ended = true;
 			Debug.Log("OVER");
+			Invoke("Restart", 1);
 		}
 	}
 	void Restart()
 	{
-		
+		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 }

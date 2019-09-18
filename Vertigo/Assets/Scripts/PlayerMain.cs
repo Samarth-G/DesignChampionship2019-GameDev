@@ -1,14 +1,24 @@
-﻿using UnityEngine;
+﻿777776using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMain : MonoBehaviour 
 {
     float move = 0f;
 	public float moveSpeed = 10f;
-	public int health = 100;
+	public Slider HealthBar;
 	
 	Rigidbody2D Rb;
 
+	public void JumpAnimation()
+	{
+		this.transform.localScale = new Vector3(0.65f, 0.4f, 1f);
+		Invoke("JumpOver", 0.2f);
+	}
+	void JumpOver()
+	{
+        this.transform.localScale = new Vector3(0.65f, 0.555f, 1f);
+    }
 	void Start () 
 	{
 		Rb = GetComponent<Rigidbody2D>();
@@ -16,8 +26,9 @@ public class PlayerMain : MonoBehaviour
 	void Update () 
 	{
 		move = Input.GetAxis("Horizontal");
-        if (Camera.main.transform.position.y - 8 > this.transform.position.y)
+        if (Camera.main.transform.position.y - 12 > this.transform.position.y)
         {
+            HealthBar.value = 0;
             Dead();
         }
 	}
@@ -29,18 +40,25 @@ public class PlayerMain : MonoBehaviour
 	}
 	public void HealthChange(int damage)
 	{
-		health = health + damage;
-		if (health <= 0)
+		Debug.Log(HealthBar.value);
+        HealthBar.value += damage;
+		if (HealthBar.value < 0)
 		{
+            HealthBar.value = 0;
+		}
+		if (HealthBar.value == 0)
+		{
+			Rb.Sleep();
 			Dead();
 		}
-		else if (health > 100)
+		if (HealthBar.value > 100)
 		{
-			health = 100;
-		}
+            HealthBar.value = 100;
+		}	
 	}
 	void Dead()
-	{	
+	{
+		Rb.Sleep();
 		FindObjectOfType<Manager>().EndGame();
 	}
 }

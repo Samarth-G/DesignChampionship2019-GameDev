@@ -109,7 +109,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 5
+  DamageCount: -50
   Rb: {fileID: 50922577989061488}
+  Explosion: {fileID: 1595796739995042, guid: dcd4aaf9b38dc45dca56cd03f302b317, type: 2}
 --- !u!212 &212304896910746966
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -144,7 +146,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 200
   m_Sprite: {fileID: 21300000, guid: 47c8ca2cf811e4214bde3fef711b8b93, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
