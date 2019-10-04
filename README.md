@@ -7,4 +7,5 @@ http://designchampionship.in/gameDesign
 Theme
 -----
 
-- Five Basic Elements: Earth, Fire, Water, Air and Space
+- Five Basic Elements: <br>
+<code>Earth, Fire, Water, Air and Space</code>
